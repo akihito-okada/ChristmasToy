@@ -1,93 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
-    <android.support.constraint.motion.MotionLayout
-        android:id="@+id/layoutBackground"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="32dp"
-        app:layoutDescription="@xml/scene_image"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:showPaths="true">
-
-        <android.support.constraint.utils.ImageFilterView
-            android:id="@+id/imageView"
+    <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/layoutBackground"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/image_christmas"
-            app:altSrc="@drawable/image_new_year"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="64dp"
+            app:layoutDescription="@xml/scene_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:showPaths="true">
 
-    </android.support.constraint.motion.MotionLayout>
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/image_christmas"
+                app:altSrc="@drawable/image_new_year"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-    <android.support.constraint.motion.MotionLayout
-        android:id="@+id/layoutLeft"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layoutDescription="@xml/scene_left"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/layoutRight"
-        tools:showPaths="true">
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
-        <ImageView
-            android:id="@+id/tonakai"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/image_tonakai"
-            tools:ignore="ContentDescription" />
-
-        <ImageView
-            android:id="@+id/spring_left"
-            android:layout_width="50dp"
+    <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/layoutLeft"
+            android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/image_spring"
-            tools:ignore="ContentDescription" />
-
-    </android.support.constraint.motion.MotionLayout>
-
-    <android.support.constraint.motion.MotionLayout
-        android:id="@+id/layoutRight"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        app:layoutDescription="@xml/scene_right"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/layoutLeft"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:showPaths="true">
+            app:layoutDescription="@xml/scene_left"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/layoutRight"
+            tools:showPaths="true">
 
         <ImageView
-            android:id="@+id/inoshishi"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/image_inoshishi"
-            tools:ignore="ContentDescription" />
+                android:id="@+id/tonakai"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_tonakai"
+                tools:ignore="ContentDescription" />
 
         <ImageView
-            android:id="@+id/spring_right"
-            android:layout_width="50dp"
-            android:layout_height="0dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/image_spring"
-            tools:ignore="ContentDescription" />
+                android:id="@+id/spring_left"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_spring"
+                tools:ignore="ContentDescription" />
 
-    </android.support.constraint.motion.MotionLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 
-</android.support.constraint.ConstraintLayout>
+    <androidx.constraintlayout.motion.widget.MotionLayout
+            android:id="@+id/layoutRight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layoutDescription="@xml/scene_right"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/layoutLeft"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:showPaths="true">
+
+        <ImageView
+                android:id="@+id/inoshishi"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_inoshishi"
+                tools:ignore="ContentDescription" />
+
+        <ImageView
+                android:id="@+id/spring_right"
+                android:layout_width="50dp"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/image_spring"
+                tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
