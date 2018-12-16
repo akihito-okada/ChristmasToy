@@ -6,11 +6,12 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.motion_end.view.*
 
+private const val TRANSITION_END = 1F
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         layoutLeft.initialize(R.drawable.image_tonakai, Runnable {
             layoutBackground.transitionToStart()
         })
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
         motionLayout.also {
-            it.transitionToEnd()
+            it.progress = TRANSITION_END
             it.setOnTouchListener { _, event ->
                 if (event.action == android.view.MotionEvent.ACTION_UP) {
                     it.transitionToEnd()
@@ -52,7 +53,6 @@ class MainActivity : AppCompatActivity() {
                         onTransitionToEnd.run()
                     }
                 }
-
             })
         }
     }

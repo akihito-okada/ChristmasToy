@@ -37,7 +37,6 @@
             android:layout_width="50dp"
             android:layout_height="0dp"
             android:src="@drawable/image_spring"
-            app:layout_constraintHeight_max="500dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/character"
