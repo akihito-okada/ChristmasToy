@@ -11,14 +11,14 @@
             android:id="@+id/layoutBackground"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="64dp"
-            app:layoutDescription="@xml/scene_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="64dp"
+            app:layoutDescription="@xml/scene_image"
             tools:showPaths="true">
 
         <androidx.constraintlayout.utils.widget.ImageFilterView
@@ -34,62 +34,24 @@
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <com.young.christmastoy.SpringToyView
             android:id="@+id/layoutLeft"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layoutDescription="@xml/scene_left"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/layoutRight"
-            tools:showPaths="true">
+            app:layout_constraintEnd_toStartOf="@+id/layoutRight"
+            tools:showPaths="true" />
 
-        <ImageView
-                android:id="@+id/tonakai"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/image_tonakai"
-                tools:ignore="ContentDescription" />
-
-        <ImageView
-                android:id="@+id/spring_left"
-                android:layout_width="50dp"
-                android:layout_height="0dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/image_spring"
-                tools:ignore="ContentDescription" />
-
-    </androidx.constraintlayout.motion.widget.MotionLayout>
-
-    <androidx.constraintlayout.motion.widget.MotionLayout
+    <com.young.christmastoy.SpringToyView
             android:id="@+id/layoutRight"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            app:layoutDescription="@xml/scene_right"
+            android:layout_height="0dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/layoutLeft"
             app:layout_constraintEnd_toEndOf="parent"
-            tools:showPaths="true">
-
-        <ImageView
-                android:id="@+id/inoshishi"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/image_inoshishi"
-                tools:ignore="ContentDescription" />
-
-        <ImageView
-                android:id="@+id/spring_right"
-                android:layout_width="50dp"
-                android:layout_height="0dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/image_spring"
-                tools:ignore="ContentDescription" />
-
-    </androidx.constraintlayout.motion.widget.MotionLayout>
+            tools:showPaths="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
