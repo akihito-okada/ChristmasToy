@@ -34,9 +34,9 @@
     </ConstraintSet>
 
     <Transition
-            motion:constraintSetEnd="@id/end"
-            motion:constraintSetStart="@id/start"
-            motion:duration="600"
-            motion:interpolator="linear" />
+        motion:constraintSetEnd="@id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="600"
+        motion:interpolator="linear" />
 
 </MotionScene>
