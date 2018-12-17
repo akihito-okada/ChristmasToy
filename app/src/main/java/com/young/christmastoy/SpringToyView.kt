@@ -90,7 +90,9 @@ class SpringToyView @JvmOverloads constructor(context: Context, attrs: Attribute
         return false
     }
 
-    private fun isClickedAnchor(startX: Float, endX: Float, startY: Float, endY: Float): Boolean {
+    private fun isClickedAnchor(startX: Float?, endX: Float, startY: Float?, endY: Float): Boolean {
+        startX ?: return false
+        startY ?: return false
         val differenceX = Math.abs(startX - endX)
         val differenceY = Math.abs(startY - endY)
         return !/* =5 */(differenceX > JUDGE_CLICK_THRESHOLD || differenceY > JUDGE_CLICK_THRESHOLD)

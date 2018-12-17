@@ -17,15 +17,15 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun SpringToyView.initialize(characterImageRes: Int, onTransitionToEnd: Runnable) {
+    private fun SpringToyView.initialize(characterImageRes: Int, transitionImage: Runnable) {
         character.setImageResource(characterImageRes)
         listener = object : SpringToyView.InteractionListener {
             override fun onTransitionEnd() {
-                onTransitionToEnd.run()
+                transitionImage.run()
             }
 
             override fun onClickedAnchor() {
-                onTransitionToEnd.run()
+                transitionImage.run()
             }
         }
     }

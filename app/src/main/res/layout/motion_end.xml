@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="ContentDescription,MissingConstraints" />
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/spring"
@@ -41,7 +41,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/character"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread"
         tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.motion.widget.MotionLayout>
