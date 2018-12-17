@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import androidx.constraintlayout.motion.widget.MotionLayout
 
 private const val JUDGE_CLICK_THRESHOLD = 50
@@ -21,9 +22,28 @@ class SpringToyView @JvmOverloads constructor(context: Context, attrs: Attribute
 
     var listener: InteractionListener? = null
 
-    var motionLayout: MotionLayout = (LayoutInflater.from(context).inflate(R.layout.motion_start, this, false) as MotionLayout)
-        .also {
+    var motionLayout: MotionLayout = (LayoutInflater.from(context).inflate(R.layout.motion_start, this, false) as MotionLayout).also {
         it.progress = TRANSITION_END
+        it.setOnTouchListener(OnTouchListener { _, ev ->
+            when (ev.action) {
+                MotionEvent.ACTION_DOWN -> {
+                    startX = ev.x
+                    startY = ev.y
+                }
+                MotionEvent.ACTION_UP   -> {
+                    val endX = ev.x
+                    val endY = ev.y
+                    if (isClickedAnchor(startX!!, endX, startY!!, endY)) {
+                        listener?.onClickedAnchor()
+                        return@OnTouchListener true
+                    }
+                    it.transitionToEnd()
+                    listener?.onTransitionEnd()
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
         it.setTransitionListener(object : MotionLayout.TransitionListener {
             override fun onTransitionChange(
                 motionLayout: MotionLayout?,
@@ -53,10 +73,10 @@ class SpringToyView @JvmOverloads constructor(context: Context, attrs: Attribute
         val isInProgress = (motionLayout.progress > 0.0f && motionLayout.progress < 1.0f)
         val isInAnchor = touchEventInsideAnchorView(touchableArea, ev)
         return if (isInProgress || isInAnchor) {
-            // Do not pass Event on the background view
+            // 子のmotionLayoutにイベントを流す
             super.onInterceptTouchEvent(ev)
         } else {
-            // Pass Event to the background view
+            // 子のmotionLayoutにイベントを流さない
             true
         }
     }
@@ -68,30 +88,6 @@ class SpringToyView @JvmOverloads constructor(context: Context, attrs: Attribute
             }
         }
         return false
-    }
-
-    override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
-        val isInAnchor = touchEventInsideAnchorView(touchableArea, ev)
-        if (isInAnchor) {
-            when (ev.action) {
-                MotionEvent.ACTION_DOWN -> {
-                    startX = ev.x
-                    startY = ev.y
-                }
-                MotionEvent.ACTION_UP   -> {
-                    val endX = ev.x
-                    val endY = ev.y
-                    if (isClickedAnchor(startX!!, endX, startY!!, endY)) {
-                        listener?.onClickedAnchor()
-                        return true
-                    }
-                    motionLayout.transitionToEnd()
-                    listener?.onTransitionEnd()
-                    return true
-                }
-            }
-        }
-        return super.dispatchTouchEvent(ev)
     }
 
     private fun isClickedAnchor(startX: Float, endX: Float, startY: Float, endY: Float): Boolean {
