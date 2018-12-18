@@ -6,13 +6,14 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
+import android.widget.FrameLayout
 import androidx.constraintlayout.motion.widget.MotionLayout
 
 private const val JUDGE_CLICK_THRESHOLD = 50
 private const val TRANSITION_END = 1F
 
 class SpringToyView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0)
-    : MotionLayout(context, attrs, defStyleAttr) {
+    : FrameLayout(context, attrs, defStyleAttr) {
 
     private val touchableArea: View
     private val clickableArea: View
